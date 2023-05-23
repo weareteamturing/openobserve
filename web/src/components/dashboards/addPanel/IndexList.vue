@@ -84,6 +84,7 @@
             >
               <div class="field_overlay" :title="props.row.name">
                 <div
+                  :data-test="`field-list-item-${dashboardPanelData.data.fields.stream_type}-${dashboardPanelData.data.fields.stream}-${props.row.name}`"
                   class="field_label"
                   :draggable="!(promqlMode || (dashboardPanelData.data.customQuery && props.pageIndex >= dashboardPanelData.meta.stream.customQueryFields.length))"
                   @dragstart="onDragStart($event, props.row)"
@@ -107,6 +108,7 @@
                     color="white"
                     padding="sm"
                     text-color="black"
+                    data-test="dashboard-add-x-data"
                     :disabled="isAddXAxisNotAllowed"
                     @click="addXAxisItem(props.row)"
                   >
