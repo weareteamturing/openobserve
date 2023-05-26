@@ -96,6 +96,7 @@
                     color="grey-13"
                     :class="['q-mr-xs', !(promqlMode || (dashboardPanelData.data.customQuery && props.pageIndex >= dashboardPanelData.meta.stream.customQueryFields.length)) ? 'drag_indicator' : 'drag_disabled']"
                     v-if="!promqlMode"
+                    data-test="dashboard-add-data-indicator"
                   />
 
                   <q-icon
