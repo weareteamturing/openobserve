@@ -138,6 +138,7 @@
                 dense
                 switch-toggle-side
                 :label="props.row.name"
+                :data-test="`log-search-expand-${props.row.name}-field-btn`"
                 expand-icon-class="field-expansion-icon"
                 :expand-icon="
                   'img:' + getImageURL('images/common/down-solid.svg')
