@@ -290,6 +290,7 @@
                                 "
                                 title="Exclude Term"
                                 round
+                                :data-test="`log-search-subfield-list-not-equal-${props.row.name}-field-btn`"
                               />
                             </div>
                           </q-item>
