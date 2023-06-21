@@ -92,7 +92,10 @@
                 class="field-container flex content-center ellipsis q-pl-lg q-pr-sm"
                 :title="props.row.name"
               >
-                <div class="field_label ellipsis" :data-test="`logs-field-list-item-${props.row.name}`">
+                <div
+                  class="field_label ellipsis"
+                  :data-test="`logs-field-list-item-${props.row.name}`"
+                >
                   {{ props.row.name }}
                 </div>
                 <div class="field_overlay">
@@ -153,7 +156,10 @@
                     class="flex content-center ellipsis"
                     :title="props.row.name"
                   >
-                    <div class="field_label ellipsis" :data-test="`logs-field-list-item-${props.row.name}`">
+                    <div
+                      class="field_label ellipsis"
+                      :data-test="`logs-field-list-item-${props.row.name}`"
+                    >
                       {{ props.row.name }}
                     </div>
                     <div class="field_overlay">
@@ -229,7 +235,12 @@
                         :key="value.key"
                       >
                         <q-list dense>
-                          <q-item tag="label" class="q-pr-none">
+                          <q-item
+                            tag="label"
+                            class="q-pr-none"
+                            :data-test="`logs-search-subfield-add-${props.row.name}-${value.
+                            key}`"
+                          >
                             <div
                               class="flex row wrap justify-between"
                               style="width: calc(100% - 42px)"
@@ -264,6 +275,7 @@
                                 "
                                 title="Include Term"
                                 round
+                                :data-test="`log-search-subfield-list-equal-${props.row.name}-field-btn`"
                               />
                               <q-btn
                                 :icon="
