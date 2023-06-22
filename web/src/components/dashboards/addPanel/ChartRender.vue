@@ -306,7 +306,8 @@ export default defineComponent({
 
       // Chart Related Functions
       const fetchQueryData = async () => {
-          const queryData = props.data.query;
+       
+          let queryData = props.data.query;
           const chartParams = {
               title: "Found " + "2" + " hits in " + "10" + " ms",
           };
@@ -327,6 +328,21 @@ export default defineComponent({
               endISOTimestamp =
                   new Date(timestamps.end_time.toISOString()).getTime() * 1000;
           }
+          console.log("before querydata", queryData);
+
+          const variables :any= {
+            namespace1: "ziox-alpha1",
+          }
+            //replace values with given values
+            if(variables) {
+
+                Object.keys(variables).forEach((it)=> {    
+                    queryData = queryData.replace("$" + it, variables[it]);
+                })
+                console.log("after querydata", queryData);
+            }
+            
+
           const query = {
               query: {
                   sql: queryData,
@@ -340,7 +356,7 @@ export default defineComponent({
           searchQueryData.loading = true
             if (props.data.fields.stream_type == "metrics" && props.data.customQuery && props.data.queryType == "promql") {
                 await queryService
-                    .metrics_query_range({
+                    .metrics_query({
                         org_identifier: store.state.selectedOrganization.identifier,
                         query: queryData,
                         start_time: startISOTimestamp,
